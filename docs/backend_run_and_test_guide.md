@@ -23,6 +23,7 @@ From the project root, run:
 
 ```bash
 source financial-rag-env/bin/activate
+``` 
 
 You should then see `(financial-rag-env)` in the terminal.
 
