@@ -1,4 +1,3 @@
-````md
 # Backend Run and Test Guide
 
 This file describes how to start, verify, and test the backend for the Financial Research RAG Assistant project.
@@ -24,7 +23,6 @@ From the project root, run:
 
 ```bash
 source financial-rag-env/bin/activate
-````
 
 You should then see `(financial-rag-env)` in the terminal.
 
