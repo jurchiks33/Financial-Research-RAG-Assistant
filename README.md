@@ -124,7 +124,7 @@ At this stage, the repository is focused on:
 - [x] create initial documentation
 - [x] create initial `.gitignore`
 - [x] create environment configuration template
-- [ ] set up backend foundation
+- [x] set up backend foundation
 - [ ] set up frontend foundation
 
 ### Phase 2 — Core RAG Pipeline
