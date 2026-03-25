@@ -1,0 +1,153 @@
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Python tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# =========================
+# FastAPI / Backend
+# =========================
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+
+# SQLite / local DB files
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# Frontend / Node / Vite
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+frontend/coverage/
+*.tsbuildinfo
+
+# General node files
+node_modules/
+dist/
+coverage/
+
+# =========================
+# Data files
+# =========================
+# Raw and processed data should usually stay out of Git
+data/raw/
+data/processed/
+data/embeddings/local_cache/
+data/evaluation/*.json
+
+# Keep folder structure if needed
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/embeddings/.gitkeep
+!data/embeddings/local_cache/.gitkeep
+!data/evaluation/.gitkeep
+
+# =========================
+# Vector stores / local indexes
+# =========================
+vector_store/qdrant/collections/
+*.faiss
+*.index
+*.bin
+
+# Optional pgvector local artifacts
+vector_store/pgvector/*.db
+
+# =========================
+# Experiments / results
+# =========================
+experiments/results/
+!experiments/results/.gitkeep
+
+# =========================
+# Notebook outputs / temp exports
+# =========================
+notebooks/.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# =========================
+# Docker / containers
+# =========================
+*.pid
+*.seed
+*.out
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Editors / IDEs
+# =========================
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Mac / Linux temp
+# =========================
+*~
+.cache/
+
+# =========================
+# Generated documentation assets
+# =========================
+docs/screenshots/*.png
+!docs/screenshots/.gitkeep
+
+# =========================
+# Misc
+# =========================
+tmp/
+temp/
+*.tmp
