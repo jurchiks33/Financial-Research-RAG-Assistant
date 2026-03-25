@@ -123,7 +123,7 @@ At this stage, the repository is focused on:
 - [x] define folder structure
 - [x] create initial documentation
 - [x] create initial `.gitignore`
-- [ ] create environment configuration template
+- [x] create environment configuration template
 - [ ] set up backend foundation
 - [ ] set up frontend foundation
 
