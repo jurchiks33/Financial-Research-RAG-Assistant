@@ -1,22 +1,20 @@
 from fastapi import APIRouter, File, HTTPException, UploadFile, status
 
-from backend.app.schemas.common import MessageResponse
 from backend.app.schemas.document import DocumentUploadResponse
 from backend.app.services.storage_service import (
     FileValidationError,
     LocalStorageService,
 )
 
-router = APIRouter()
+router = APIRouter(prefix="/documents", tags=["documents"])
 storage_service = LocalStorageService()
 
 
-@router.get("", response_model=MessageResponse)
-def list_documents():
-    return MessageResponse(message="Documents endpoint placeholder")
-
-
-@router.post("/upload", response_model=DocumentUploadResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/upload",
+    response_model=DocumentUploadResponse,
+    status_code=status.HTTP_201_CREATED,
+)
 async def upload_document(file: UploadFile = File(...)) -> DocumentUploadResponse:
     try:
         result = await storage_service.save_upload(file)

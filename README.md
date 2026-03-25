@@ -125,10 +125,10 @@ At this stage, the repository is focused on:
 - [x] create initial `.gitignore`
 - [x] create environment configuration template
 - [x] set up backend foundation
-- [ ] set up frontend foundation
+- [x] set up frontend foundation
 
 ### Phase 2 — Core RAG Pipeline
-- [ ] document upload flow
+- [x] document upload flow
 - [ ] parsing and preprocessing
 - [ ] chunking logic
 - [ ] embeddings generation
