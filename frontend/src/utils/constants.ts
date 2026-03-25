@@ -1,0 +1,1 @@
+export const APP_NAME = "Financial Research RAG Assistant";
