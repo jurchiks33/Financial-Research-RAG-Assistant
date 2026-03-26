@@ -133,7 +133,7 @@ At this stage, the repository is focused on:
 - [x] chunking logic
 - [x] embeddings generation
 - [x] vector storage
-- [ ] retrieval pipeline
+- [x] retrieval pipeline
 - [ ] answer generation with citations
 
 ### Phase 3 — Evaluation and Quality
