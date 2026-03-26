@@ -129,7 +129,7 @@ At this stage, the repository is focused on:
 
 ### Phase 2 — Core RAG Pipeline
 - [x] document upload flow
-- [ ] parsing and preprocessing
+- [x] parsing and preprocessing
 - [ ] chunking logic
 - [ ] embeddings generation
 - [ ] vector storage

@@ -151,3 +151,15 @@ docs/screenshots/*.png
 tmp/
 temp/
 *.tmp
+
+# Uploaded and processed document artifacts
+data/uploads/*
+data/processed/parsed_documents/*
+data/processed/cleaned_text/*
+data/processed/metadata/*
+
+# Keep folder structure
+!data/uploads/.gitkeep
+!data/processed/parsed_documents/.gitkeep
+!data/processed/cleaned_text/.gitkeep
+!data/processed/metadata/.gitkeep
