@@ -2,11 +2,13 @@ from pathlib import Path
 
 from fastapi import APIRouter, File, HTTPException, UploadFile, status
 
+from backend.app.schemas.chunk import ChunkResponse
 from backend.app.schemas.common import MessageResponse
 from backend.app.schemas.document import (
     DocumentProcessResponse,
     DocumentUploadResponse,
 )
+from backend.app.services.chunking_service import ChunkingService
 from backend.app.services.ingestion_service import IngestionService
 from backend.app.services.storage_service import (
     FileValidationError,
@@ -16,6 +18,7 @@ from backend.app.services.storage_service import (
 router = APIRouter()
 storage_service = LocalStorageService()
 ingestion_service = IngestionService()
+chunking_service = ChunkingService()
 
 
 @router.get("", response_model=MessageResponse)
@@ -73,4 +76,29 @@ def process_document(filename: str) -> DocumentProcessResponse:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Processing failed: {exc}",
+        ) from exc
+
+
+@router.post(
+    "/{document_id}/chunk",
+    response_model=ChunkResponse,
+    status_code=status.HTTP_200_OK,
+)
+def chunk_document(document_id: str) -> ChunkResponse:
+    try:
+        return chunking_service.chunk_document(document_id=document_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=str(exc),
+        ) from exc
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        ) from exc
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Chunking failed: {exc}",
         ) from exc

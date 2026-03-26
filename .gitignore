@@ -74,9 +74,8 @@ coverage/
 # =========================
 # Data files
 # =========================
-# Raw and processed data should usually stay out of Git
+# Raw and processed data 
 data/raw/
-data/processed/
 data/embeddings/local_cache/
 data/evaluation/*.json
 
@@ -157,9 +156,12 @@ data/uploads/*
 data/processed/parsed_documents/*
 data/processed/cleaned_text/*
 data/processed/metadata/*
+data/processed/chunks/*
 
 # Keep folder structure
 !data/uploads/.gitkeep
+!data/processed/.gitkeep
 !data/processed/parsed_documents/.gitkeep
 !data/processed/cleaned_text/.gitkeep
 !data/processed/metadata/.gitkeep
+!data/processed/chunks/.gitkeep
