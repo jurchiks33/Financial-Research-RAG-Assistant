@@ -9,6 +9,7 @@ from backend.app.schemas.document import (
     DocumentUploadResponse,
 )
 from backend.app.schemas.embedding import EmbeddingResponse
+from backend.app.schemas.vector_store import VectorStoreResponse
 from backend.app.services.chunking_service import ChunkingService
 from backend.app.services.embedding_service import EmbeddingService
 from backend.app.services.ingestion_service import IngestionService
@@ -16,12 +17,14 @@ from backend.app.services.storage_service import (
     FileValidationError,
     LocalStorageService,
 )
+from backend.app.services.vector_store_service import VectorStoreService
 
 router = APIRouter()
 storage_service = LocalStorageService()
 ingestion_service = IngestionService()
 chunking_service = ChunkingService()
 embedding_service = EmbeddingService()
+vector_store_service = VectorStoreService()
 
 
 @router.get("", response_model=MessageResponse)
@@ -129,4 +132,29 @@ def embed_document(document_id: str) -> EmbeddingResponse:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Embedding generation failed: {exc}",
+        ) from exc
+
+
+@router.post(
+    "/{document_id}/store-vectors",
+    response_model=VectorStoreResponse,
+    status_code=status.HTTP_200_OK,
+)
+def store_document_vectors(document_id: str) -> VectorStoreResponse:
+    try:
+        return vector_store_service.store_document_vectors(document_id=document_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=str(exc),
+        ) from exc
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        ) from exc
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Vector storage failed: {exc}",
         ) from exc

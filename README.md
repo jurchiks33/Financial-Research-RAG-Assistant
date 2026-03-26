@@ -132,7 +132,7 @@ At this stage, the repository is focused on:
 - [x] parsing and preprocessing
 - [x] chunking logic
 - [x] embeddings generation
-- [ ] vector storage
+- [x] vector storage
 - [ ] retrieval pipeline
 - [ ] answer generation with citations
 
