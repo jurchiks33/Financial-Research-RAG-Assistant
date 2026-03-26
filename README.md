@@ -131,7 +131,7 @@ At this stage, the repository is focused on:
 - [x] document upload flow
 - [x] parsing and preprocessing
 - [x] chunking logic
-- [ ] embeddings generation
+- [x] embeddings generation
 - [ ] vector storage
 - [ ] retrieval pipeline
 - [ ] answer generation with citations

@@ -7,3 +7,5 @@ pytest
 httpx
 python-multipart
 pypdf
+sentence-transformers
+numpy

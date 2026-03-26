@@ -8,7 +8,9 @@ from backend.app.schemas.document import (
     DocumentProcessResponse,
     DocumentUploadResponse,
 )
+from backend.app.schemas.embedding import EmbeddingResponse
 from backend.app.services.chunking_service import ChunkingService
+from backend.app.services.embedding_service import EmbeddingService
 from backend.app.services.ingestion_service import IngestionService
 from backend.app.services.storage_service import (
     FileValidationError,
@@ -19,6 +21,7 @@ router = APIRouter()
 storage_service = LocalStorageService()
 ingestion_service = IngestionService()
 chunking_service = ChunkingService()
+embedding_service = EmbeddingService()
 
 
 @router.get("", response_model=MessageResponse)
@@ -101,4 +104,29 @@ def chunk_document(document_id: str) -> ChunkResponse:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Chunking failed: {exc}",
+        ) from exc
+
+
+@router.post(
+    "/{document_id}/embed",
+    response_model=EmbeddingResponse,
+    status_code=status.HTTP_200_OK,
+)
+def embed_document(document_id: str) -> EmbeddingResponse:
+    try:
+        return embedding_service.embed_document(document_id=document_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=str(exc),
+        ) from exc
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        ) from exc
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Embedding generation failed: {exc}",
         ) from exc

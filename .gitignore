@@ -157,6 +157,7 @@ data/processed/parsed_documents/*
 data/processed/cleaned_text/*
 data/processed/metadata/*
 data/processed/chunks/*
+data/embeddings/local_cache/*
 
 # Keep folder structure
 !data/uploads/.gitkeep
@@ -165,3 +166,4 @@ data/processed/chunks/*
 !data/processed/cleaned_text/.gitkeep
 !data/processed/metadata/.gitkeep
 !data/processed/chunks/.gitkeep
+!data/embeddings/local_cache/.gitkeep
