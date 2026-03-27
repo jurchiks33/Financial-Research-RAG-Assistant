@@ -134,7 +134,12 @@ At this stage, the repository is focused on:
 - [x] embeddings generation
 - [x] vector storage
 - [x] retrieval pipeline
-- [ ] answer generation with citations
+- [x] answer generation with citations
+
+Phase 2 completed:
+- End-to-end RAG pipeline is operational
+- Chat query endpoint returns grounded answers with inline citations
+- Retrieval results are linked back to source chunks
 
 ### Phase 3 — Evaluation and Quality
 - [ ] retrieval benchmark dataset
