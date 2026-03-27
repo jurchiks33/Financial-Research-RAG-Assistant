@@ -142,7 +142,7 @@ Phase 2 completed:
 - Retrieval results are linked back to source chunks
 
 ### Phase 3 — Evaluation and Quality
-- [ ] retrieval benchmark dataset
+- [x] retrieval benchmark dataset
 - [ ] answer evaluation workflow
 - [ ] feedback collection
 - [ ] quality metrics dashboard

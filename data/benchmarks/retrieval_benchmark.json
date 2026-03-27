@@ -1,0 +1,33 @@
+{
+  "dataset_name": "retrieval_benchmark_v1",
+  "description": "Initial retrieval benchmark dataset for Financial Research RAG Assistant",
+  "cases": [
+    {
+      "id": "rb_001",
+      "document_id": "931af1d3-d102-4312-abe7-16f2ffbb1b31",
+      "source_filename": "tesla_annual_report.pdf",
+      "query": "What are the main risk factors?",
+      "expected_chunk_keywords": [
+        "risk factors",
+        "ability to grow the business",
+        "manufacturing costs"
+      ],
+      "expected_chunk_ids": [],
+      "top_k": 5,
+      "notes": "Should retrieve Item 1A Risk Factors section"
+    },
+    {
+      "id": "rb_002",
+      "document_id": "931af1d3-d102-4312-abe7-16f2ffbb1b31",
+      "source_filename": "tesla_annual_report.pdf",
+      "query": "What does the company say about concentration of credit risk?",
+      "expected_chunk_keywords": [
+        "concentration of credit risk",
+        "financial instruments"
+      ],
+      "expected_chunk_ids": [],
+      "top_k": 5,
+      "notes": "Should retrieve section discussing financial risk exposure"
+    }
+  ]
+}

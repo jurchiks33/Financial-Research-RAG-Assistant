@@ -169,3 +169,23 @@ vector_store/local_index/*
 !data/processed/chunks/.gitkeep
 !data/embeddings/local_cache/.gitkeep
 !vector_store/local_index/.gitkeep
+
+# =========================
+# Evaluation / benchmarks
+# =========================
+
+# Keep benchmark datasets in git
+!data/benchmarks/
+!data/benchmarks/*.json
+!data/benchmarks/.gitkeep
+
+# Ignore generated evaluation outputs
+data/evaluation/results/*
+data/evaluation/reports/*
+data/evaluation/tmp/*
+
+# Keep folder structure
+!data/evaluation/.gitkeep
+!data/evaluation/results/.gitkeep
+!data/evaluation/reports/.gitkeep
+!data/evaluation/tmp/.gitkeep
